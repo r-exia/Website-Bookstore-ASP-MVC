@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Edit";
+}
+
+@model TheLoai
+<div class="container-lg justify-content-center  "style="height=960px">
+    <h3 class="font-weight-bold m-5">Quản Lý </h3>
+    <div class="row ">
+
+        <div class="col-3">
+            <section>
+                <ul class="nav nav-pills flex-column">
+                    <li class="nav-item "><a class="nav-link px-2 m-1" asp-area="Admin" asp-controller="DonHang" asp-action="Index">Kiểm tra đơn hàng khách hàng</a></li>
+                    <li class="nav-item"><a class="nav-link px-2 m-1  " asp-area="Admin" asp-controller="SanPham" asp-action="Index">Quản lý sản phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link px-2 m-1 active" asp-area="Admin" asp-controller="TheLoai" asp-action="Index">Quản lý thể loại</a></li>
+                    <li class="nav-item"><a class="nav-link px-2 m-1" asp-area="Admin" asp-controller="TinTuc" asp-action="Index">Quản lý tin tức</a></li>
+                </ul>
+            </section>
+        </div>
+        <div class="col-9 ">
+            <section>
+
+    <h3>Chỉnh sửa thể loại</h3>
+    <form method="post" asp-action="Edit">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Name">Tên thể loại </label>
+            <input asp-for="Name" type="text" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="DateCreated">Ngày tạo </label>
+            <input asp-for="DateCreated" type="date" class="form-control" />
+            <span asp-validation-for="DateCreated" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Lưu</button>
+        <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+
+    </form>
+
+
+            </section>
+        </div>
+    </div>
+

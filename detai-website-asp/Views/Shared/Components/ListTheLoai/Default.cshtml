@@ -1,0 +1,10 @@
+﻿@model IEnumerable<TheLoai>
+
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li><a asp-area="Customer" asp-controller="Home" asp-action="Grid">@item.Name</a></li>
+    }
+
+</ul>

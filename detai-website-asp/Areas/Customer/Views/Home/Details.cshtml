@@ -1,0 +1,218 @@
+﻿@{
+    ViewData["Title"] = "Details";
+}
+@model GioHang
+<!-- Hero Section Begin -->
+<section class="hero hero-normal">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="hero__categories">
+                    <div class="hero__categories__all">
+                        <i class="fa fa-bars"></i>
+                        <span>Tất cả thể loại</span>
+                    </div>
+                    <ul>
+                        <vc:list-the-loai></vc:list-the-loai>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="hero__search">
+                    <div class="hero__search__form">
+                        <form action="#">
+                            <div class="hero__search__categories">
+                                Tất cả sản phẩm
+                                <span class="arrow_carrot-down"></span>
+                            </div>
+                            <input type="text" placeholder="Bạn cần tìm gì?">
+                            <button type="submit" class="site-btn">TÌM KIẾM</button>
+                        </form>
+                    </div>
+                    <div class="hero__search__phone">
+                        <div class="hero__search__phone__icon">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div class="hero__search__phone__text">
+                            <h5>+84 11.188.888</h5>
+                            <span>hỗ trợ trực tuyến 24/7</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Hero Section End -->
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-section set-bg" data-setbg="../img/blog/3.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="hero__text">
+                    <h2>@Model.SanPham.Name</h2>
+                    <div class="hero__option">
+                        <span>@Model.SanPham.TheLoai.Name</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+<!-- Product Details Section Begin -->
+<form method="post">
+    <section class="product-details spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="product__details__pic">
+                        <div class="product__details__pic__item  ">
+                            <img src="@Model.SanPham.ImageUrl" class="product__details__pic__item--large">
+                        </div>
+                        <div class="product__details__pic__slider owl-carousel">
+                            <img data-imgbigurl="@Model.SanPham.ImageUrl2"
+                                 src="@Model.SanPham.ImageUrl2" alt="">
+                            <img data-imgbigurl="@Model.SanPham.ImageUrl3"
+                                 src="@Model.SanPham.ImageUrl3" alt="">
+                            <img data-imgbigurl="@Model.SanPham.ImageUrl4"
+                                 src="@Model.SanPham.ImageUrl4" alt="">
+                            <img data-imgbigurl="@Model.SanPham.ImageUrl5"
+                                 src="@Model.SanPham.ImageUrl5" alt="">
+                            <img data-imgbigurl="@Model.SanPham.ImageUrl"
+                                 src="@Model.SanPham.ImageUrl" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="product__details__text">
+                        <h3>@Model.SanPham.Name</h3>
+                        <div class="product__details__rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                            <span>(18 reviews)</span>
+                        </div>
+                        <div class="product__details__price">@String.Format("{0:0,0}",Model.SanPham.Price) VND</div>
+
+                        <div class="product__details__quantity">
+                            <div class="quantity">
+                                <div class="pro-qty">
+                                    <input type="number" asp-for="@Model.Quantity" min="1" max="10" step="1" required>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="site-btn" type="submit"><span>THÊM VÀO GIỎ HÀNG</span></button>
+                        <a asp-action="grid" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                        <ul>
+                            <li><b>Thể loại</b> <span>@Model.SanPham.TheLoai.Name</span></li>
+                            <li><b>Tác giả</b> <span>@Model.SanPham.TacGia</span></li>
+                            <li><b>Nhà xuất bản</b> <span>@Model.SanPham.NhaXuatBan</span></li>
+                            <li><b>Tình trạng</b> <span>Còn hàng</span></li>
+                            <li><b>Vận chuyển</b> <span>1 ngày. <samp> Miễn phí vận chuyển hôm nay!</samp></span></li>
+                            <li><b>Trọng lượng</b> <span>@Model.SanPham.NhaCungCap gram</span></li>
+                            <li>
+                                <b>Chia sẻ</b>
+                                <div class="share">
+                                    <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+                                    <a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a>
+                                    <a href="https://www.pinterest.com/" target="_blank"><i class="fa fa-pinterest"></i></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="product__details__tab">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab"
+                                   aria-selected="true">Chi tiết</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab"
+                                   aria-selected="false">Mô tả</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
+                                   aria-selected="false">Đánh giá <span>(1)</span></a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                                <div class="product__details__tab__desc">
+                                    <h6>Chi tiết sản phẩm</h6>
+                                    <p>
+                                        Tên sách: @Model.SanPham.Name
+                                    </p>
+                                <p>
+                                            Giá: @String.Format("{0:0,0}",Model.SanPham.Price) VND
+                                </p>
+                                <p>
+                                    Tác giả: @Model.SanPham.TacGia
+                                </p>
+                                <p>
+                                    Nhà xuất bản: @Model.SanPham.NhaXuatBan
+                                </p>
+                                <p>
+                                    Trọng lượng: @Model.SanPham.NhaCungCap gram
+                                </p>
+                                
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabs-2" role="tabpanel">
+                                <div class="product__details__tab__desc">
+                                    <h6>Thông tin sản phẩm</h6>
+                                    <p>
+                                        <textarea id="inputdescript">@Model.SanPham.Description</textarea>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabs-3" role="tabpanel">
+                                <div class="product__details__tab__desc">
+                                    <h6>Đánh giá </h6>
+                                    <p>
+                                        <div class="fb-comments" data-href="https://canvas.dntu.edu.vn/courses/1433/pages/tuan-06-slide?module_item_id=@Model.Id" data-width="1140" data-numposts="5"></div>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</form>
+<!-- Product Details Section End -->
+<!-- Related Product Section Begin -->
+<section class="related-product">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title related__product__title">
+                    <h2>Sản phẩm liên quan</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="categories__slider owl-carousel">
+             
+                <vc:san-pham></vc:san-pham>
+         
+            </div>
+        </div>
+    </div>
+</section>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v15.0&appId=404925661840185&autoLogAppEvents=1" nonce="Fvbj4L1D"></script>
+<!-- Related Product Section End -->
+@section Scripts
+    {
+    <script>
+        CKEDITOR.inline('inputdescript')
+    </script>
+    
+}

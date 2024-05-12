@@ -1,0 +1,155 @@
+﻿@{
+    ViewData["Title"] = "Cart";
+}
+@model GioHangViewModel
+<!-- Hero Section Begin -->
+<section class="hero hero-normal">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="hero__categories">
+                    <div class="hero__categories__all">
+                        <i class="fa fa-bars"></i>
+                        <span>Tất cả thể loại</span>
+                    </div>
+                    <vc:list-the-loai></vc:list-the-loai>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="hero__search">
+                    <div class="hero__search__form">
+                        <form action="#">
+                            <div class="hero__search__categories">
+                                Tất cả sản phẩm
+                                <span class="arrow_carrot-down"></span>
+                            </div>
+                            <input type="text" placeholder="Bạn cần tìm gì?">
+                            <button type="submit" class="site-btn">TÌM KIẾM</button>
+                        </form>
+                    </div>
+                    <div class="hero__search__phone">
+                        <div class="hero__search__phone__icon">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div class="hero__search__phone__text">
+                            <h5>+84 11.188.888</h5>
+                            <span>hỗ trợ trực tuyến 24/7</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Hero Section End -->
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-section set-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="hero__text">
+                    <h2>GIỎ HÀNG</h2>
+                    <div class="hero__option">
+                        <span>THANH TOÁN</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+<!-- Shoping Cart Section Begin -->
+<section class="shoping-cart spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="shoping__cart__table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="shoping__product">Sản phẩm</th>
+                                <th>Đơn giá</th>
+                                <th>Số lượng</th>
+                                <th>Thành tiền</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.DsGioHang)
+                            {
+                                <tr>
+                                    <td class="shoping__cart__item">
+                                        <img src="@item.SanPham.ImageUrl" width="150px" height="220px" alt="">
+                                        <h5>@item.SanPham.Name</h5>
+                                    </td>
+                                    <td class="shoping__cart__price">
+                                        @String.Format("{0:0,0}",item.SanPham.Price) VND
+                                    </td>
+                                    <td class="shoping__cart__quantity">
+                                        <div class="quantity">
+                                            <div class="qty">
+                                                <a asp-area="Customer" asp-controller="GioHang" asp-action="Giam" asp-route-giohangId="@item.Id" style="min-width:26px">
+                                                    -
+                                                </a>
+
+                                                <input style="border:none" type="text" asp-for="@item.Quantity">
+
+                                                <a asp-area="Customer" asp-controller="GioHang" asp-action="Tang" asp-route-giohangId="@item.Id" style="min-width:26px">
+                                                    +
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="shoping__cart__total">
+                                        @String.Format("{0:0,0}",item.ProductPrice) VND
+                                    </td>
+                                    <td class="shoping__cart__item__close">
+                                        <a asp-action="Xoa" asp-route-giohangId="@item.Id">
+                                            <span class="icon_close"></span>
+                                        </a>
+                                    </td>
+                                </tr>
+
+
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="shoping__cart__btns">
+                    <a asp-area="Customer" asp-controller="Home" asp-action="Index" class="primary-btn cart-btn">TIẾP TỤC MUA SẮM</a>
+                    <a asp-area="Customer" asp-controller="GioHang" asp-action="Index" class="primary-btn cart-btn cart-btn-right">
+                        <span class="icon_loading"></span>
+                        CẬP NHẬT GIỎ HÀNG
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="shoping__continue">
+                    <div class="shoping__discount">
+                        <h5>MÃ GIẢM GIÁ</h5>
+                        <form action="#">
+                            <input type="text" placeholder="Nhập mã giảm giá của bạn">
+                            <button type="submit" class="site-btn">ÁP DỤNG</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="shoping__checkout">
+                    <h5>TỔNG CỘNG</h5>
+                    <ul>
+                        <li>Phụ thu phí vận chuyển: <span>0 VND (Miễn phí vận chuyển)</span></li>
+                        <li>Thành tiền <span>@String.Format("{0:0,0}",Model.HoaDon.Total) VND</span></li>
+                    </ul>
+                    <a asp-area="Customer" asp-controller="GioHang" asp-action="ThanhToan" class="primary-btn">TIẾN HÀNH THANH TOÁN</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Shoping Cart Section End -->

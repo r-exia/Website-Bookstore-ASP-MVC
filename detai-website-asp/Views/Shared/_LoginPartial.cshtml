@@ -1,0 +1,27 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <div class="header__top__right__auth ">
+        <a class="nav-link text-dark" asp-area="Admin" asp-controller="DonHang" asp-action="Index" title="Tùy chọn"><i class="fa fa-user"></i>@User.Identity?.Name</a>
+    </div>
+    <div class="header__top__right__auth ">
+        <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            <button type="submit" class="nav-link btn btn-link text-dark"><i class="fa fa-sign-out" aria-hidden="true"></i>Đăng xuất</button>
+        </form>
+    </div>
+}
+else
+{
+    <div class="header__top__right__auth ">
+        <a asp-area="Identity" asp-page="/Account/Login"><i class="fa fa-user"></i>Đăng nhập</a>
+    </div>
+    <div class="header__top__right__auth ">
+        <a asp-area="Identity" asp-page="/Account/Register"><i class="fa fa-plus"></i>Đăng ký</a>
+    </div>
+}
+

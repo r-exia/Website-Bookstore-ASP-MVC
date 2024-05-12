@@ -1,0 +1,109 @@
+﻿
+@model SanPham
+
+
+
+<div class="container-lg justify-content-center  "style="height=960px">
+    <h3 class="font-weight-bold m-5">Quản Lý </h3>
+    <div class="row ">
+
+        <div class="col-3">
+            <section>
+                <ul class="nav nav-pills flex-column">
+                    <li class="nav-item "><a class="nav-link px-2 m-1" asp-area="Admin" asp-controller="DonHang" asp-action="Index">Kiểm tra đơn hàng khách hàng</a></li>
+                    <li class="nav-item"><a class="nav-link px-2 m-1 active" asp-area="Admin" asp-controller="SanPham" asp-action="Index">Quản lý sản phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link px-2 m-1" asp-area="Admin" asp-controller="TheLoai" asp-action="Index">Quản lý thể loại</a></li>
+                    <li class="nav-item"><a class="nav-link px-2 m-1" asp-area="Admin" asp-controller="TinTuc" asp-action="Index">Quản lý tin tức</a></li>
+                </ul>
+            </section>
+        </div>
+        <div class="col-9 ">
+            <section>
+    <form method="post" asp-action="Upsert">
+        <div class="row">
+        <div asp-validation-summary="All"></div>
+        <div class="form-group col-10">
+            <label asp-for="Name">Tên sản phẩm</label>
+            <input asp-for="Name" type="text" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group col-2">
+            <label asp-for="Description">Thể Loại</label>
+            <select asp-for="TheLoaiId" asp-items="@ViewBag.DSTheLoai" class="form-control">
+                <option selected disabled>Chọn</option>
+            </select>
+            <span asp-validation-for="TheLoaiId" class="text-danger"></span>
+        </div>
+                        <div class="form-group col-10">
+                            <label asp-for="TacGia">Tác Giả</label>
+                            <input asp-for="TacGia" type="text" class="form-control" />
+                            <span asp-validation-for="TacGia" class="text-danger"></span>
+                        </div>
+         <div class="form-group col-10">
+            <label asp-for="Description">Nội dung</label>
+                            <textarea asp-for="Description" type="text" id="Description" class="form-control"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+       
+        <div class="form-group col-10">
+            <label asp-for="ImageUrl">Hình 1</label>
+            <input asp-for="ImageUrl" type="text" class="form-control" />
+            <span asp-validation-for="ImageUrl" class="text-danger"></span>
+        </div>
+        <div class="form-group col-10">
+            <label asp-for="ImageUrl2">Hình 2</label>
+            <input asp-for="ImageUrl2" type="text" class="form-control" />
+            <span asp-validation-for="ImageUrl2" class="text-danger"></span>
+        </div>
+        <div class="form-group col-10">
+            <label asp-for="ImageUrl3">Hình 3</label>
+            <input asp-for="ImageUrl3" type="text" class="form-control" />
+            <span asp-validation-for="ImageUrl3" class="text-danger"></span>
+        </div>
+        <div class="form-group col-10">
+            <label asp-for="ImageUrl4">Hình 4</label>
+            <input asp-for="ImageUrl4" type="text" class="form-control" />
+            <span asp-validation-for="ImageUrl4" class="text-danger"></span>
+        </div>
+       <div class="form-group col-10">
+            <label asp-for="ImageUrl5">Hình 5</label>
+            <input asp-for="ImageUrl5" type="text" class="form-control" />
+            <span asp-validation-for="ImageUrl5" class="text-danger"></span>
+        </div>
+         
+        <div class="form-group col-4">
+            <label asp-for="NhaXuatBan">Nhà xuất bản</label>
+            <input asp-for="NhaXuatBan" type="text" class="form-control" />
+            <span asp-validation-for="NhaXuatBan" class="text-danger"></span>
+        </div>
+       <div class="form-group col-2">
+            <label asp-for="Price">Giá</label>
+            <input asp-for="Price"type="number" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+                        <div class="form-group col-4">
+                            <label asp-for="NhaCungCap">Trọng lượng</label>
+                            <input asp-for="NhaCungCap" type="text" class="form-control" />
+                            <span asp-validation-for="NhaCungCap" class="text-danger"></span>
+                        </div>
+        
+         </div>
+         <button type="submit" class="btn btn-primary">@(Model.Id == 0 ? "Tạo mới" : "Lưu")</button>
+        <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+    </form>
+       
+        </section>
+    </div>
+</div>
+</div>
+
+@section Scripts{
+
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#Description'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+}

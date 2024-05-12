@@ -1,0 +1,251 @@
+﻿@{
+    ViewData["Title"] = "Blog_Details";
+}
+@model TinTuc
+<!-- Hero Section Begin -->
+<section class="hero hero-normal">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="hero__categories">
+                    <div class="hero__categories__all">
+                        <i class="fa fa-bars"></i>
+                        <span>Tất cả thể loại</span>
+                    </div>
+                    <vc:list-the-loai></vc:list-the-loai>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="hero__search">
+                    <div class="hero__search__form">
+                        <form action="#">
+                            <div class="hero__search__categories">
+                                Tất cả sản phẩm
+                                <span class="arrow_carrot-down"></span>
+                            </div>
+                            <input type="text" placeholder="Bạn cần tìm gì?">
+                            <button type="submit" class="site-btn">TÌM KIẾM</button>
+                        </form>
+                    </div>
+                    <div class="hero__search__phone">
+                        <div class="hero__search__phone__icon">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div class="hero__search__phone__text">
+                            <h5>+84 11.188.888</h5>
+                            <span>hỗ trợ trực tuyến 24/7</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Hero Section End -->
+<!-- Blog Details Hero Begin -->
+<section class="blog-details-hero set-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="hero__text">
+                    <h2>@Model.TieuDe</h2>
+                    <ul>
+                        <span>Một Người Yêu Sách - </span>
+                        <span>@Model.ThoiGian - </span>
+                        <span>8 Bình luận</span>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Blog Details Hero End -->
+<!-- Blog Details Section Begin -->
+<section class="blog-details spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-5 order-md-1 order-2">
+                <div class="blog__sidebar">
+                    <div class="blog__sidebar__search">
+                        <form action="#">
+                            <input type="text" placeholder="Tìm kiếm...">
+                            <button type="submit"><span class="icon_search"></span></button>
+                        </form>
+                    </div>
+                    <div class="blog__sidebar__item">
+                        <h4>Danh mục</h4>
+                        <ul>
+                            <vc:list-the-loai></vc:list-the-loai>
+                        </ul>
+                    </div>
+                    <div class="blog__sidebar__item">
+                        <h4>Bài viết mới nhất</h4>
+                        <div class="blog__sidebar__recent">
+                            <a href="#" class="blog__sidebar__recent__item">
+                                <div class="blog__sidebar__recent__item__pic">
+                                </div>
+                                <div class="blog__sidebar__recent__item__text">
+                                    <h6>Tin phát hành tháng 1<br /> Những tác phẩm nổi bật của mùa xuân</h6>
+                                    <span>5/1/2022</span>
+                                </div>
+                            </a>
+                            <a href="#" class="blog__sidebar__recent__item">
+                                <div class="blog__sidebar__recent__item__pic">
+                                </div>
+                                <div class="blog__sidebar__recent__item__text">
+                                    <h6>Tin phát hành tháng 7<br /> Những tác phẩm nổi bật của mùa hè</h6>
+                                    <span>6/7/2022</span>
+                                </div>
+                            </a>
+                            <a href="#" class="blog__sidebar__recent__item">
+                                <div class="blog__sidebar__recent__item__pic">
+                                </div>
+                                <div class="blog__sidebar__recent__item__text">
+                                    <h6>Tin phát hành tháng 10 <br />Những tác phẩm nổi bật của mùa thu</h6>
+                                    <span>11/10/2022</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="blog__sidebar__item">
+                        <h4>Search By</h4>
+                        <h4>Tìm kiếm theo</h4>
+                        <div class="blog__sidebar__item__tags">
+                            <a asp-action="Grid" asp-area="Customer" asp-controller="Home">Thể loại</a>
+                            <a asp-action="Grid" asp-area="Customer" asp-controller="Home">Sách mới</a>
+                            <a asp-action="Grid" asp-area="Customer" asp-controller="Home">Sách hot</a>
+                            <a asp-action="Grid" asp-area="Customer" asp-controller="Home">Sách bán chạy</a>
+                            <a asp-action="Grid" asp-area="Customer" asp-controller="Home">Sách cũ</a>
+                            <a asp-action="Grid" asp-area="Customer" asp-controller="Home">Sách giảm giá</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-7 order-md-1 order-1">
+                <div class="blog__details__text">
+                    <textarea asp-for="@Model.NoiDung" id="inputdescript"></textarea>
+                </div>
+                <div class="blog__details__content">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="blog__details__author">
+                                <div class="blog__details__author__pic">
+                                    <img src="~/img/blog/1111.png" alt="">
+                                </div>
+                                <div class="blog__details__author__text">
+                                    <h6>Một Người Yêu Sách</h6>
+                                    <span>Tác giả</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="blog__details__widget">
+                                <ul>
+                                    <li><span>Danh mục:</span> Sách hay, Sách bán chạy</li>
+                                    <li><span>Thể loại:</span> Tất cả, Truyện tranh, Tiểu thuyết</li>
+                                </ul>
+                                <div class="blog__details__social">
+                                    <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+                                    <a href="https://www.google.com/" target="_blank"><i class="fa fa-google-plus"></i></a>
+                                    <a href="https://www.linkedin.com/" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                    <a href="https://www.envelope.com/" target="_blank"><i class="fa fa-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Blog Details Section End -->
+<!-- Related Blog Section Begin -->
+<section class="related-blog spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title related-blog-title">
+                    <h2>Bài viết có thể bạn sẽ thích</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <vc:tin-tuc></vc:tin-tuc>
+                
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Related Blog Section End -->
+@section Scripts
+    {
+    <script>
+        CKEDITOR.inline('inputdescript')
+
+    </script>
+
+    <script>
+        CKEDITOR.inline('1')
+    </script>
+    <script>
+        CKEDITOR.inline('2')
+    </script>
+    <script>
+        CKEDITOR.inline('3')
+    </script>
+    <script>
+        CKEDITOR.inline('4')
+    </script>
+    <script>
+        CKEDITOR.inline('5')
+    </script>
+    <script>
+        CKEDITOR.inline('6')
+    </script>
+    <script>
+        CKEDITOR.inline('7')
+    </script>
+    <script>
+        CKEDITOR.inline('8')
+    </script>
+    <script>
+        CKEDITOR.inline('9')
+    </script>
+    <script>
+        CKEDITOR.inline('10')
+    </script>
+    <script>
+        CKEDITOR.inline('11')
+    </script>
+    <script>
+        CKEDITOR.inline('12')
+    </script>
+    <script>
+        CKEDITOR.inline('13')
+    </script>
+    <script>
+        CKEDITOR.inline('14')
+    </script>
+    <script>
+        CKEDITOR.inline('15')
+    </script>
+    <script>
+        CKEDITOR.inline('16')
+    </script>
+    <script>
+        CKEDITOR.inline('17')
+    </script>
+    <script>
+        CKEDITOR.inline('18')
+    </script>
+    <script>
+        CKEDITOR.inline('18')
+    </script>
+    <script>
+        CKEDITOR.inline('19')
+    </script>
+    <script>
+        CKEDITOR.inline('20')
+    </script>
+}

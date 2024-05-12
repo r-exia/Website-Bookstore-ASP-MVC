@@ -1,0 +1,186 @@
+﻿@{
+    ViewData["Title"] = "Checkout";
+}
+
+<!-- Hero Section Begin -->
+<section class="hero hero-normal">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="hero__categories">
+                    <div class="hero__categories__all">
+                        <i class="fa fa-bars"></i>
+                        <span>Tất cả thể loại</span>
+                    </div>
+                    <vc:list-the-loai></vc:list-the-loai>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="hero__search">
+                    <div class="hero__search__form">
+                        <form action="#">
+                            <div class="hero__search__categories">
+                                All Categories
+                                <span class="arrow_carrot-down"></span>
+                            </div>
+                            <input type="text" placeholder="Bạn cần tìm gì?">
+                            <button type="submit" class="site-btn">TÌM KIẾM</button>
+                        </form>
+                    </div>
+                    <div class="hero__search__phone">
+                        <div class="hero__search__phone__icon">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div class="hero__search__phone__text">
+                            <h5>+84 11.188.888</h5>
+                            <span>hỗ trợ trực tuyến 24/7</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Hero Section End -->
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-section set-bg" data-setbg="../img/breadcrumb.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="hero__text">
+                    <h2>ĐƠN HÀNG</h2>
+                    <div class="hero__option">
+                        <span>THANH TOÁN</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+<!-- Checkout Section Begin -->
+<section class="checkout spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h6>
+                    <span class="icon_tag_alt"></span> Bạn có voucher? <a asp-area="Customer" asp-controller="GioHang" asp-action="Index">Nhấn vào đây</a> để hưởng ưu đãi
+                </h6>
+            </div>
+        </div>
+        <div class="checkout__form">
+            <h4>THÔNG TIN NHẬN HÀNG</h4>
+            <form action="#">
+                <div class="row">
+                    <div class="col-lg-8 col-md-6">
+                        <div class="checkout__input">
+                            <p>Họ và tên người nhận<span>*</span></p>
+                            <input type="text">
+                        </div>
+                        <div class="checkout__input">
+                            <p>Quốc gia<span>*</span></p>
+                            <input type="text">
+                        </div>
+                        <div class="checkout__input">
+                            <p>Địa chỉ<span>*</span></p>
+                            <input type="text" placeholder="Tên đường" class="checkout__input__add">
+                            <input type="text" placeholder="Căn hộ, dãy phòng, hợp nhất ... (tùy chọn)">
+                        </div>
+                        <div class="checkout__input">
+                            <p>Phường/Khu phố<span>*</span></p>
+                            <input type="text">
+                        </div>
+                        <div class="checkout__input">
+                            <p>Tỉnh/Thành phố<span>*</span></p>
+                            <input type="text">
+                        </div>
+                        <div class="checkout__input">
+                            <p>Mã bưu chính<span>*</span></p>
+                            <input type="text">
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="checkout__input">
+                                    <p>Số điện thoại<span>*</span></p>
+                                    <input type="text">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="checkout__input">
+                                    <p>Email<span>*</span></p>
+                                    <input type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="checkout__input__checkbox">
+                            <label for="acc">
+                                Chưa có tài khoản?
+                                <input type="checkbox" id="acc">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <p>
+                            Tạo tài khoản bằng cách nhập thông tin bên dưới. Nếu bạn là khách hàng cũ,
+                            xin hãy đăng nhập ở phía trên cùng của trang
+                        </p>
+                        <div class="checkout__input">
+                            <p>Nhập mật khẩu<span>*</span></p>
+                            <input type="text">
+                        </div>
+                        <div class="checkout__input__checkbox">
+                            <label for="diff-acc">
+                                Gửi đến một địa chỉ khác?
+                                <input type="checkbox" id="diff-acc">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="checkout__input">
+                            <p>Ghu chú<span>*</span></p>
+                            <input type="text"
+                                   placeholder="Ghi chú về đơn đặt hàng của bạn, ví dụ: lưu ý đặc biệt để giao hàng.">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="checkout__order">
+                            <h4>Đơn Hàng Của Bạn</h4>
+                            <div class="checkout__order__products">Sản phẩm <span>Tổng cộng</span></div>
+                            <ul>
+                                <li>Nhà có 5 nàng dâu <span>27.000 VND</span></li>
+                                <li>Dã ngoại thảnh thơi <span>30.000 VND</span></li>
+                                <li>Naruto <span>18.000 VND</span></li>
+                            </ul>
+                            <div class="checkout__order__subtotal">Phụ thu phí vận chuyển<span>0 VND (Miễn phí vận chuyển)</span></div>
+                            <div class="checkout__order__total">Thành tiền <span>80.000 VND</span></div>
+                            <div class="checkout__input__checkbox">
+                                <label for="acc-or">
+                                    Chưa có tài khoản?
+                                    <input type="checkbox" id="acc-or">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <p>
+                                Sống như đọc một cuốn sách. Cần phải biết lật sang một trang mới khi cần thiết
+                            </p>
+                            <div class="checkout__input__checkbox">
+                                <label for="payment">
+                                    Trả bằng thẻ tín dụng
+                                    <input type="checkbox" id="payment">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="checkout__input__checkbox">
+                                <label for="paypal">
+                                    Thanh toán bằng Paypal
+                                    <input type="checkbox" id="paypal">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <button type="submit" class="site-btn">ĐẶT HÀNG</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<!-- Checkout Section End -->

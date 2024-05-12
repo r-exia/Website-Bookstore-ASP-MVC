@@ -1,0 +1,13 @@
+﻿@model IEnumerable<GioHang>
+
+<ul class="header__menuu">
+@foreach (var item in Model)
+{
+   
+
+
+    <li><a asp-area="Customer" asp-controller="GioHang" asp-action="Index">@item.SanPhamId</a></li>
+
+
+}
+</ul>

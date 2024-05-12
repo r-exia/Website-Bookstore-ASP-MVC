@@ -1,0 +1,22 @@
+﻿@model IEnumerable<TinTuc>
+  @foreach (var item in @Model)
+ {
+    <div class="col-lg-4 col-md-4 col-sm-6">
+        <div class="blog__item">
+            <div class="blog__item__pic">
+                <img src="@item.ImageUrl" alt="">
+            </div>
+            <div class="blog__item__text">
+                <ul>
+                    <li><i class="fa fa-calendar-o"></i> @item.ThoiGian</li>
+                    <li><i class="fa fa-comment-o"></i> 6</li>
+                </ul>
+                <h5>
+                    <a asp-area="Customer" asp-controller="Home" asp-action="Blog_Details" asp-route-id="@item.Id">@item.TieuDe</a></h5>
+                    <p class="text-textare">
+                    <textarea id="@item.Id">@item.NoiDung</textarea>
+                </p>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,61 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+@model IEnumerable<HoaDon>
+
+
+
+<div class="container-lg justify-content-center " >
+    <h3 class="font-weight-bold m-5">Quản Lý </h3>
+    <div class="row ">
+        <hr>
+        <div class="col-3">
+             <section>
+                <ul class="nav nav-pills flex-column">
+                    <li class="nav-item "><a class="nav-link px-2 m-1 active" asp-area="Admin" asp-controller="DonHang" asp-action="Index">Kiểm tra đơn hàng khách hàng</a></li>
+                    <li class="nav-item"><a class="nav-link px-2 m-1 " asp-area="Admin" asp-controller="SanPham" asp-action="Index">Quản lý sản phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link px-2 m-1" asp-area="Admin" asp-controller="TheLoai" asp-action="Index">Quản lý thể loại</a></li>
+                    <li class="nav-item"><a class="nav-link px-2 m-1" asp-area="Admin" asp-controller="TinTuc" asp-action="Index">Quản lý tin tức</a></li>
+                </ul>
+            </section>
+        </div>
+        <div class="col-9 ">
+            <section>
+    <table class="table">
+        <thead>
+            <tr>
+                            <th width ="30%">Mã đơn hàng</th>
+                <th width="30%">Tên khách hàng</th>
+                <th width="10%">Số điện thoại</th>
+                <th width="15%">Địa chỉ</th>
+                <th width="20%">Tình trạng</th>
+                <th width="15%">Tổng cộng</th>
+                <th width="15%">Chức năng</th>
+
+            </tr>
+        </thead>
+        @foreach (var item in @Model)
+        {
+            <tbody>
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.PhoneNumber</td>
+                    <td>@item.Address</td>
+                    <td>@item.OrderStatus</td>
+                    <td>@item.Total</td>
+                    <td width="40%">
+                        <a class="site-btn" asp-controller="DonHang" asp-action="ChiTiet" asp-route-id="@item.Id">Chi tiết</a>
+
+                    </td>
+                </tr>
+            </tbody>
+        }
+    </table>
+            </section>
+        </div>
+    </div>
+</div>
+
+
+

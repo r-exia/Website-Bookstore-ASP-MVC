@@ -1,0 +1,304 @@
+﻿@{
+    ViewData["Title"] = "Index";
+
+}
+
+@model IEnumerable<SanPham>
+
+
+    <!-- Hero Section Begin -->
+    <section class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="hero__categories">
+                        <div class="hero__categories__all">
+                            <i class="fa fa-bars"></i>
+                        <span>Tất cả thể loại</span>
+                        </div>
+                        <vc:list-the-loai></vc:list-the-loai>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="hero__search">
+                        <div class="hero__search__form">
+                            <form action="#">
+                                <div class="hero__search__categories">
+                                Tất cả sản phẩm
+                                    <span class="arrow_carrot-down"></span>
+                                </div>
+                                <input type="text" placeholder="Bạn cần tìm gì?">
+                                <button type="submit" class="site-btn">TÌM KIẾM</button>
+                            </form>
+                        </div>
+                        <div class="hero__search__phone">
+                        <div  class="hero__search__phone__icon">
+                            
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <div class="hero__search__phone__text">
+                                <h5>+84 11.188.888</h5>
+                                <span>hỗ trợ trực tuyến 24/7</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero__item set-bg" data-setbg="../img/2.jpg">
+                        <div class="hero__text">
+                            <span>TRUYỆN HOT</span>
+                            <h2>FLY ME TO THE MOON <br />100% độ dễ thương</h2>
+                            <p>Đã phát hành trên toàn quốc!</p>
+                            <a asp-area="Customer" asp-controller="Home" asp-action="Grid" class="primary-btn">MUA NGAY</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+    <!-- Categories Section Begin -->
+    <section class="categories">
+        <div class="container">
+            <div class="row">
+                <div class="categories__slider owl-carousel">
+                    @foreach(var item in Model)
+                    {
+                        <div class="col-lg-3">
+                        <div class="categories__item set-bg" data-setbg="@item.ImageUrl">
+                            <h5><a asp-action="Details" asp-route-sanphamId="@item.Id">@item.Name</a></h5>
+                        </div>
+                    </div>
+                    }
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Categories Section End -->
+    <!-- Featured Section Begin -->
+    <section class="featured spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>Tìm sản phẩm theo thể loại</h2>
+                    </div>
+                    <div class="featured__controls">
+                        <ul>
+                            <li class="active" data-filter="*">Tất cả</li>
+                            <li data-filter=".oranges">Tình cảm</li>
+                            <li data-filter=".fresh-meat">Hành động</li>
+                            <li >Phiêu lưu</li>
+                        <li >Trinh thám</li>
+                        <li data-filter=".fastfood">...</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row featured__filter">
+
+            @foreach (var item in @Model)
+            {
+                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg" data-setbg="@item.ImageUrl">
+                            <ul class="featured__item__pic__hover">
+                                <li><a asp-action="grid"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="https://twitter.com/" target="_blank"><i class="fa fa-retweet"></i></a></li>
+                                <li><a asp-action="details" asp-route-sanphamId="@item.Id"><i class="fa fa-shopping-cart"></i>
+                                </a></li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6>@item.Name</h6>
+                            <h5>@String.Format("{0:0,0}",item.Price) VND</h5>
+                        </div>
+                    </div>
+                </div>
+            }
+                
+            </div>
+        </div>
+    </section>
+    <!-- Featured Section End -->
+    <!-- Banner Begin -->
+    <div class="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="banner__pic">
+                    <a asp-area="Customer" asp-controller="Home" asp-action="Grid"><img src="~/img/14.jpg" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="banner__pic">
+                    <a asp-area="Customer" asp-controller="Home" asp-action="Grid"><img src="~/img/13.jpg" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Banner End -->
+    <!-- Latest Product Section Begin -->
+<section class="latest-product spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="latest-product__text">
+                    <h4>Sách mới</h4>
+                    <div class="latest-product__slider owl-carousel">
+
+                        @foreach (var item in Model)
+                        {
+                            <div class="latest-prdouct__slider__item">
+                                <a asp-area="Customer" asp-controller="Home " asp-action="Grid" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="@item.ImageUrl" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>@item.Name</h6>
+                                        <span>@String.Format("{0:0,0}",item.Price) VND</span>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="latest-product__text">
+                    <h4>Sách hot</h4>
+                    <div class="latest-product__slider owl-carousel">
+
+                        @foreach (var item in Model)
+                        {
+                            <div class="latest-prdouct__slider__item">
+                                <a asp-action="grid" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="@item.ImageUrl" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>@item.Name</h6>
+                                        <span>@String.Format("{0:0,0}",item.Price) VND</span>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="latest-product__text">
+                    <h4>Sách bán chạy</h4>
+                    <div class="latest-product__slider owl-carousel">
+                        @foreach (var item in Model)
+                        {
+                            <div class="latest-prdouct__slider__item">
+                                <a asp-action="grid" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="@item.ImageUrl" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>@item.Name</h6>
+                                        <span>@String.Format("{0:0,0}",item.Price) VND</span>
+                                    </div>
+                                </a>
+
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Latest Product Section End -->
+    <!-- Blog Section Begin -->
+    <section class="from-blog spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title from-blog__title">
+                        <h2>Từ bài viết trên Blog</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+               <p class="text-textare">
+                <vc:tin-tuc></vc:tin-tuc>
+            </p>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Section End -->
+@section Scripts
+    {
+    <script>
+        CKEDITOR.inline('1')
+    </script>
+    <script>
+        CKEDITOR.inline('2')
+    </script>
+    <script>
+        CKEDITOR.inline('3')
+    </script>
+    <script>
+        CKEDITOR.inline('4')
+    </script>
+    <script>
+        CKEDITOR.inline('5')
+    </script>
+    <script>
+        CKEDITOR.inline('6')
+    </script>
+    <script>
+        CKEDITOR.inline('7')
+    </script>
+    <script>
+        CKEDITOR.inline('8')
+    </script>
+    <script>
+        CKEDITOR.inline('9')
+    </script>
+    <script>
+        CKEDITOR.inline('10')
+    </script>
+    <script>
+        CKEDITOR.inline('11')
+    </script>
+    <script>
+        CKEDITOR.inline('12')
+    </script>
+    <script>
+        CKEDITOR.inline('13')
+    </script>
+    <script>
+        CKEDITOR.inline('14')
+    </script>
+    <script>
+        CKEDITOR.inline('15')
+    </script>
+    <script>
+        CKEDITOR.inline('16')
+    </script>
+    <script>
+        CKEDITOR.inline('17')
+    </script>
+    <script>
+        CKEDITOR.inline('18')
+    </script>
+    <script>
+        CKEDITOR.inline('18')
+    </script>
+    <script>
+        CKEDITOR.inline('19')
+    </script>
+    <script>
+        CKEDITOR.inline('20')
+    </script>
+}

@@ -1,0 +1,66 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+
+<div class="container-lg justify-content-between article">
+    <h1>Đăng Ký</h1>
+    <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="dangnhap">
+        Hãy điền đúng thông tin bên dưới để đăng ký tài khoản thành viên NhaSach@@247
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="text-login">
+            <div class="placehoder">Tên của bạn:</div>
+            <span asp-validation-for="Input.Name" class="text-danger"></span>
+            <input asp-for="Input.Name" autocomplete="username" aria-required="true" placeholder="Nhập tên của bạn">
+        </div>
+        <div class="text-login">
+            <div class="placehoder">Email:</div>
+
+            <span asp-validation-for="Input.Email" class="text-danger"></span>
+            <input asp-for="Input.Email" placeholder="Nhập email của bạn" autocomplete="username" aria-required="true">
+        </div>
+        <div class="text-login">
+            <div class="placehoder">Mật khẩu:</div>
+            <span asp-validation-for="Input.Password" class="text-danger"></span>
+            <input asp-for="Input.Password" type="password" placeholder="Nhập mật khẩu" autocomplete="new-password" aria-required="true">
+        </div>
+        <div class="text-login">
+            <div class="placehoder">Nhập lại mật khẩu:</div>
+            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            <input asp-for="Input.ConfirmPassword" type="password" placeholder="Nhập lại mật khẩu" autocomplete="new-password" aria-required="true">
+
+        </div>
+        <div class="text-login">
+            <div class="placehoder">Địa chỉ:</div>
+            <span asp-validation-for="Input.Address" class="text-danger"></span>
+            <input asp-for="Input.Address" type="text" placeholder="Nhập địa chỉ" aria-required="true">
+        </div>
+        <div class="text-login">
+            <div class="placehoder">Số điện thoại:</div>
+            <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+            <input asp-for="Input.PhoneNumber" type="text" placeholder="Nhập số điện thoại" aria-required="true">
+        </div>
+        <div class="text-login">
+            <select asp-for="Input.Role" asp-items="@Model.Input.RoleList" >
+                <option disabled selected>Chọn Role</option>
+            </select>
+        </div>
+
+       <br />
+        <div class="text-login">
+            <button id="registerSubmit" type="submit" class="site-btn">Đăng ký</button>
+        </div>
+    </form>
+
+</div>
+</div>
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+
+}

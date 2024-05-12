@@ -1,0 +1,12 @@
+﻿
+
+@model IEnumerable<TheLoai>
+<li>
+    <a asp-area="Customer" asp-controller="Home" asp-action="Grid">Trang</a>
+    <ul class="header__menu__dropdown">
+        @foreach(var item in Model)
+        {
+            <li><a asp-area="Customer" asp-controller="Home" asp-action="Grid">@item.Name</a></li>
+        }
+    </ul>
+</li>

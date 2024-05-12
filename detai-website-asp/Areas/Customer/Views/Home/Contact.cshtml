@@ -1,0 +1,139 @@
+﻿@{
+    ViewData["Title"] = "Contact";
+}
+
+<!-- Hero Section Begin -->
+<section class="hero hero-normal">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="hero__categories">
+                    <div class="hero__categories__all">
+                        <i class="fa fa-bars"></i>
+                        <span>Tất cả thể loại</span>
+                    </div>
+                    <vc:list-the-loai></vc:list-the-loai>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="hero__search">
+                    <div class="hero__search__form">
+                        <form action="#">
+                            <div class="hero__search__categories">
+                                Tất cả sản phẩm
+                                <span class="arrow_carrot-down"></span>
+                            </div>
+                            <input type="text" placeholder="Bạn cần tìm gì?">
+                            <button type="submit" class="site-btn">TÌM KIẾM</button>
+                        </form>
+                    </div>
+                    <div class="hero__search__phone">
+                        <div class="hero__search__phone__icon">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div class="hero__search__phone__text">
+                            <h5>+84 11.188.888</h5>
+                            <span>hỗ trợ trực tuyến 24/7</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Hero Section End -->
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-section set-bg" data-setbg="../img/breadcrumb.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="hero__text">
+                    <h2>Liên hệ với chúng tôi</h2>
+                    <div class="hero__option">
+                        <span>Liên hệ với chúng tôi</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+<!-- Contact Section Begin -->
+<section class="contact spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                <div class="contact__widget">
+                    <span class="icon_phone"></span>
+                    <h4>Điện thoại</h4>
+                    <p>+84-3-8888-6868</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                <div class="contact__widget">
+                    <span class="icon_pin_alt"></span>
+                    <h4>Địa chỉ</h4>
+                    <p>24/7 Dong Nai VIETNAM</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                <div class="contact__widget">
+                    <span class="icon_clock_alt"></span>
+                    <h4>Thời gian mở cửa</h4>
+                    <p>10:00 AM - 23:00 PM</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                <div class="contact__widget">
+                    <span class="icon_mail_alt"></span>
+                    <h4>Email</h4>
+                    <p>nhasach@247.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact Section End -->
+<!-- Map Begin -->
+<div class="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.718498984674!2d106.86693981475081!3d10.984607592180453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174ddb237f9dd59%3A0x3ff1538c511f05d7!2zVHLGsOG7nW5nIMSQ4bqhaSBI4buNYyBDw7RuZyBOZ2jhu4cgxJDhu5NuZyBOYWk!5e0!3m2!1svi!2s!4v1665458839817!5m2!1svi!2s"
+            height="500" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    <div class="map-inside">
+        <i class="icon_pin"></i>
+        <div class="inside-widget">
+            <h4>Dong Nai</h4>
+            <ul>
+                <li>Điện thoại: +84-345-6789</li>
+                <li>Địa chỉ: 24/7 Bien Hoa, Dong Nai, VIETNAM</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Map End -->
+<!-- Contact Form Begin -->
+<div class="contact-form spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="contact__form__title">
+                    <h2>Để lại tin nhắn</h2>
+                </div>
+            </div>
+        </div>
+        <form action="#">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <input type="text" placeholder="Tên của bạn">
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <input type="text" placeholder="Email của bạn">
+                </div>
+                <div class="col-lg-12 text-center">
+                    <textarea placeholder="Tin nhắn của bạn "></textarea>
+                    <button type="submit" class="site-btn" asp-area="customer" asp-controller="home" asp-action="index">GỬI TIN NHẮN</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Contact Form End -->

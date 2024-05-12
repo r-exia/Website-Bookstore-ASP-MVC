@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+@model IEnumerable<TinTuc>
+
+
+
+<div class="container-lg justify-content-center" style="height=960px">
+    <h3 class="font-weight-bold m-5">Quản Lý </h3>
+    <div class="row ">
+
+        <div class="col-3">
+            <section>
+                <ul class="nav nav-pills flex-column">
+                    <li class="nav-item "><a class="nav-link px-2 m-1" asp-area="Admin" asp-controller="DonHang" asp-action="Index">Kiểm tra đơn hàng khách hàng</a></li>
+                    <li class="nav-item"><a class="nav-link px-2 m-1" asp-area="Admin" asp-controller="SanPham" asp-action="Index">Quản lý sản phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link px-2 m-1" asp-area="Admin" asp-controller="TheLoai" asp-action="Index">Quản lý thể loại</a></li>
+                    <li class="nav-item"><a class="nav-link px-2 m-1 active" asp-area="Admin" asp-controller="TinTuc" asp-action="Index">Quản lý tin tức</a></li>
+                </ul>
+            </section>
+        </div>
+        <div class="col-9 ">
+            <section>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Hình ảnh</th>
+                            <th width="40%">Tiêu đề</th>
+                            <th width="30%">Thời gian</th>
+                            <th>Chức năng</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in @Model)
+                    {
+                        <tbody>
+                            <tr>
+                                <td><img src="@item.ImageUrl" width="40px" /> </td>
+                                <td>@item.TieuDe</td>
+                                <td>@item.ThoiGian</td>
+
+
+                                <td width="40%">
+                                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Sửa</a>
+                                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Xóa</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+                <a asp-controller="TinTuc" asp-action="Create" class="site-btn">Thêm mới</a>
+            </section>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,229 @@
+﻿@{
+    ViewData["Title"] = "Blog";
+}
+@model IEnumerable<TinTuc>
+<!-- Hero Section Begin -->
+<section class="hero hero-normal">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="hero__categories">
+                    <div class="hero__categories__all">
+                        <i class="fa fa-bars"></i>
+                        <span>Tất cả thể loại</span>
+                    </div>
+                    <vc:list-the-loai></vc:list-the-loai>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="hero__search">
+                    <div class="hero__search__form">
+                        <form action="#">
+                            <div class="hero__search__categories">
+                                Tất cả sản phẩm
+                                <span class="arrow_carrot-down"></span>
+                            </div>
+                            <input type="text" placeholder="Bạn cần tìm gì?">
+                            <button type="submit" class="site-btn">TÌM KIẾM</button>
+                        </form>
+                    </div>
+                    <div class="hero__search__phone">
+                        <div class="hero__search__phone__icon">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div class="hero__search__phone__text">
+                            <h5>+84 11.188.888</h5>
+                            <span>hỗ trợ trực tuyến 24/7</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Hero Section End -->
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-section set-bg" data-setbg="../img/10.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="hero__text">
+                    <h2>Blog</h2>
+                        <span>Tin tức - Reviews</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+<!-- Blog Section Begin -->
+<section class="blog spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-5">
+                <div class="blog__sidebar">
+                    <div class="blog__sidebar__search">
+                        <form action="#">
+                            <input type="text" placeholder="Tìm kiếm...">
+                            <button type="submit"><span class="icon_search"></span></button>
+                        </form>
+                    </div>
+                    <div class="blog__sidebar__item">
+                        <h4>Danh mục</h4>
+                        <ul>
+                            <li><a asp-action="Grid" asp-area="Customer" asp-controller="Home">Tất cả</a></li>
+                            <li><a  asp-action="Grid" asp-area="Customer" asp-controller="Home">Tình Cảm (20)</a></li>
+                            <li><a asp-action="Grid" asp-area="Customer" asp-controller="Home">Học Đường (5)</a></li>
+                            <li><a asp-action="Grid" asp-area="Customer" asp-controller="Home">Phiêu Lưu (9)</a></li>
+                            <li><a asp-action="Grid" asp-area="Customer" asp-controller="Home">Văn Học Hiện Đại (10)</a></li>
+                        </ul>
+                    </div>
+                    <div class="blog__sidebar__item">
+                        <h4>Bài viết mới nhất</h4>
+                        <div class="blog__sidebar__recent">
+                            <a href="#" class="blog__sidebar__recent__item">
+                                <div class="blog__sidebar__recent__item__pic">
+                                </div>
+                                <div class="blog__sidebar__recent__item__text">
+                                    <h6>Tin phát hành tháng 1<br /> Những tác phẩm nổi bật của mùa xuân</h6>
+                                    <span>5/1/2022</span>
+                                </div>
+                            </a>
+                            <a href="#" class="blog__sidebar__recent__item">
+                                <div class="blog__sidebar__recent__item__pic">
+                                </div>
+                                <div class="blog__sidebar__recent__item__text">
+                                    <h6>Tin phát hành tháng 7<br /> Những tác phẩm nổi bật của mùa hè</h6>
+                                    <span>6/7/2022</span>
+                                </div>
+                            </a>
+                            <a href="#" class="blog__sidebar__recent__item">
+                                <div class="blog__sidebar__recent__item__pic">
+                                </div>
+                                <div class="blog__sidebar__recent__item__text">
+                                    <h6>Tin phát hành tháng 10 <br />Những tác phẩm nổi bật của mùa thu</h6>
+                                    <span>11/10/2022</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="blog__sidebar__item">
+                        <h4>Tìm kiếm theo</h4>
+                        <div class="blog__sidebar__item__tags">
+                            <a asp-action="Grid" asp-area="Customer" asp-controller="Home">Thể loại</a>
+                            <a asp-action="Grid" asp-area="Customer" asp-controller="Home">Sách mới</a>
+                            <a asp-action="Grid" asp-area="Customer" asp-controller="Home">Sách hot</a>
+                            <a asp-action="Grid" asp-area="Customer" asp-controller="Home">Sách bán chạy</a>
+                            <a asp-action="Grid" asp-area="Customer" asp-controller="Home">Sách cũ</a>
+                            <a asp-action="Grid" asp-area="Customer" asp-controller="Home">Sách giảm giá</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-7">
+                <div class="row">
+                    @foreach (var item in @Model)
+                    {
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="blog__item">
+                                <div class="blog__item__pic">
+                                    <img src="@item.ImageUrl" alt="">
+                                </div>
+                                <div class="blog__item__text">
+                                    <ul>
+                                        <li><i class="fa fa-calendar-o"></i>@item.ThoiGian</li>
+                                        <li><i class="fa fa-comment-o"></i> 5</li>
+                                    </ul>
+                                    <h5><a asp-action="Blog_Details" asp-route-id="@item.Id">@item.TieuDe</a></h5>
+                                    <p class="text-textare">  
+                                    <textarea id="@item.Id">@item.NoiDung</textarea>
+                                    </p> 
+                                    <a asp-action="Blog_Details" asp-route-id="@item.Id" class="blog__btn">ĐỌC THÊM <span class="arrow_right"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    <div class="col-lg-12">
+                        <div class="product__pagination blog__pagination">
+                            <a href="#">1</a>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#"><i class="fa fa-long-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Blog Section End -->
+@section Scripts
+    {
+    <script>
+        CKEDITOR.inline('inputdescript')
+    </script>
+    <script>
+        CKEDITOR.inline('1')
+    </script>
+    <script>
+        CKEDITOR.inline('2')
+    </script>
+    <script>
+        CKEDITOR.inline('3')
+    </script>
+    <script>
+        CKEDITOR.inline('4')
+    </script>
+    <script>
+        CKEDITOR.inline('5')
+    </script>
+    <script>
+        CKEDITOR.inline('6')
+    </script>
+    <script>
+        CKEDITOR.inline('7')
+    </script>
+    <script>
+        CKEDITOR.inline('8')
+    </script>
+    <script>
+        CKEDITOR.inline('9')
+    </script>
+    <script>
+        CKEDITOR.inline('10')
+    </script>
+    <script>
+        CKEDITOR.inline('11')
+    </script>
+    <script>
+        CKEDITOR.inline('12')
+    </script>
+    <script>
+        CKEDITOR.inline('13')
+    </script>
+    <script>
+        CKEDITOR.inline('14')
+    </script>
+    <script>
+        CKEDITOR.inline('15')
+    </script>
+    <script>
+        CKEDITOR.inline('16')
+    </script>
+    <script>
+        CKEDITOR.inline('17')
+    </script>
+    <script>
+        CKEDITOR.inline('18')
+    </script>
+    <script>
+        CKEDITOR.inline('18')
+    </script>
+    <script>
+        CKEDITOR.inline('19')
+    </script>
+    <script>
+        CKEDITOR.inline('20')
+    </script>
+}

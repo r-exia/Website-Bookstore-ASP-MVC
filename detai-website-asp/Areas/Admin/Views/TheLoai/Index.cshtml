@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "TheLoai";
+}
+<div class="container-lg justify-content-center  " style="height=960px">
+    <h3 class="font-weight-bold m-5">Quản Lý </h3>
+    <div class="row ">
+        <div class="col-3">
+            <section>
+                <ul class="nav nav-pills flex-column">
+                    <li class="nav-item "><a class="nav-link px-2 m-1" asp-area="Admin" asp-controller="DonHang" asp-action="Index">Kiểm tra đơn hàng khách hàng</a></li>
+                    <li class="nav-item"><a class="nav-link px-2 m-1  " asp-area="Admin" asp-controller="SanPham" asp-action="Index">Quản lý sản phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link px-2 m-1 active" asp-area="Admin" asp-controller="TheLoai" asp-action="Index">Quản lý thể loại</a></li>
+                    <li class="nav-item"><a class="nav-link px-2 m-1" asp-area="Admin" asp-controller="TinTuc" asp-action="Index">Quản lý tin tức</a></li>
+                </ul>
+            </section>
+        </div>
+        <div class="col-9 ">
+            <section>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Tên thể loại</th>
+                            <th width="60%">Ngày tạo</th>
+                            <th>Chức năng</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in @ViewBag.TheLoai)
+                    {
+                        <tbody>
+                            <tr>
+                                <td >@item.Name</td>
+                                <td >@String.Format("{0:dd/MM/yyyy}", item.DateCreated)</td>
+                                <td>
+                                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Sửa</a>
+                                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Xóa</a>
+                                </td>
+                                
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+                <a asp-controller="TheLoai" asp-action="Create" class="btn btn-primary">Thêm mới</a>
+                </div>
+        </section>
+    </div>
+</div>
